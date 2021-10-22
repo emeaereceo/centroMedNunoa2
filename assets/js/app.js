@@ -256,6 +256,29 @@ pacientesCM.forEach((persona) => {
 	ejercicio4.innerHTML += `<p>${persona.paciente}</p>`;
 });
 
+// EJERCICIO 5 Y 6
+const filtroPrevision = (ubicacion, especialidad, prevision) => {
+	// const previsionSeleccionada = e.target.id;
+	const ubicacionResultado = document.querySelector(ubicacion);
+	resultados = especialidad.filter(
+		(pac) => pac.prevision === prevision.toUpperCase()
+	);
+	// console.table(resultados);
+	resultados.forEach((resultado) => {
+		ubicacionResultado.innerHTML += `<p>${resultado.paciente} - ${resultado.prevision}</p>`;
+	});
+};
+filtroPrevision('#ejercicio5', dental, 'isapre');
+// console.table(dental);
+// EN EL CASO DE TRAUMATOLOGIA ESTA CONSIDERANDO INCLUSO A LAS PERSONAS QUE SE AGREGARON
+filtroPrevision('#ejercicio6', traumatologiaExtendido, 'fonasa');
+// console.table(traumatologiaExtendido);
+
+// const filtros = document.querySelectorAll('#ejercicio5 button');
+// filtros.forEach((boton) => {
+// 	boton.addEventListener('click', filtroPrevision);
+// });
+
 // document.write(
 // 	`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`
 // );
